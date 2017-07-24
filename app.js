@@ -36,7 +36,8 @@ var friends = mongoose.Schema({
 var userModel = mongoose.model('userModel',user);
 var friendModel = mongoose.model('friendModel',friends);
 
-require('/routes/auth')(app,userModel,randomstring);
+require('./routes/auth')(app,userModel,randomstring);
+require('./routes/friend')(app,friendModel,userModel);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

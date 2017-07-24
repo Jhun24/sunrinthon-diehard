@@ -5,7 +5,7 @@ module.exports = auth;
 
 function auth(app,userModel,randomstring){
     "use strict";
-    app.post('/login',(req,res)=>{
+    app.post('/auth/login',(req,res)=>{
        var id = req.body.id;
        var ps = req.body.password;
 
@@ -16,7 +16,7 @@ function auth(app,userModel,randomstring){
        });
     });
 
-    app.post('/signup',(req,res)=>{
+    app.post('/auth/signup',(req,res)=>{
         var id = req.body.id;
         var ps = req.body.password;
         var name = req.body.name;
