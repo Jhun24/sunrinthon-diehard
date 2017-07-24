@@ -10,7 +10,7 @@ function friend(app,friendModel,userModel){
 
         friendModel.find({"token":token},(err,model)=>{
             if(err) throw err;
-            if(!model.length){
+            if(model.length == 0){
                 res.send(404);
             }
             else{

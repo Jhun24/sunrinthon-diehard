@@ -8,13 +8,18 @@ $(".login").click(function(){
     console.log("Access");
     $.ajax({
         method:"POST",
-        url:"http://169.56.126.158:1234/auth/login",
+        url:"http://localhost:3000/auth/login",
         data:{"id":id,"password":ps},
         success:function(data){
-            console.log(data);
+            location.href="http://localhost:3000/noMain"
         },
         error:function(err){
             console.log(err);
         }
     })
+});
+
+$(".signup").click(function(){
+    "use strict";
+    location.href="http://localhost:3000/signup"
 });

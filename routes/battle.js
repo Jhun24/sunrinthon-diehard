@@ -133,4 +133,11 @@ function battle(app,battleModel,randomstring , userModel){
            }
         });
     });
+
+    app.get('/battle/fight',(req,res)=>{
+        userModel.find({"token":req.session.token},(err,model)=>{
+            if(err) throw err;
+            res.send(model);
+        })
+    });
 }

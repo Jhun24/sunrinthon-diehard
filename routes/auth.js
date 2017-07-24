@@ -11,30 +11,39 @@ function auth(app,userModel,randomstring,session){
 
        userModel.find({"id":id,"password":ps},(err,model)=>{
            if(err) throw err;
-           if(!model.length) res.send(404);
-           else req.session.token = model[0]["token"]; res.send(model[0]["token"]);
+           console.log(model);
+           if(model.length == 0) res.send(404);
+           else{
+               req.session.token = model[0]["token"];
+               res.send(model);
+           }
        });
     });
 
     app.post('/auth/signup',(req,res)=>{
+
         var id = req.body.id;
+
         var ps = req.body.password;
+
         var name = req.body.name;
-        var length;
+
+        var length = "false";
+
         userModel.find({"id":id},(err,model)=>{
             if(err) throw err;
-            if(!model.length){
-                userModel.find({},(error,m)=>{
-                   if(error) throw error;
-                   length = m.length + 1;
-                });
-                var token = randomstring.generate()
-                var userSaveModel = new userModel({"id":id,"password":ps,"name":name,"tag":length,"token":token});
+            console.log(model.length)
+            if(model.length == 0){
+                console.log("Start")
+                console.log(length)
+                var token = randomstring.generate();
+                console.log(token);
+                var userSaveModel = new userModel({"id":id,"password":ps,"name":name,"fight":length,"token":token});
 
                 userSaveModel.save((error,m)=>{
                     if(error) throw error;
                     req.session.token = token;
-                    res.send(token);
+                    res.send(m);
                 });
             }
             else{

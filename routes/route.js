@@ -5,27 +5,29 @@ module.exports = route;
 
 function route(app){
     "use strict";
-    app.get('/route/noMain',(req,res)=>{
-        res.render('index.html');
-    });
 
-    app.get('/route/main',(req,res)=>{
+    app.get('/main',(req,res)=>{
         res.render('main.html');
     });
 
-    app.get('/route/login',(req,res)=>{
+    app.get('/noMain',(req,res)=>{
+        res.render('index.html')
+    });
+
+    app.get('/',(req,res)=>{
+        console.log("/ access");
         res.render('login.html');
     });
 
-    app.get('/route/signup',(req,res)=>{
+    app.get('/signup',(req,res)=>{
         res.render('signup.html');
     });
 
-    app.get('/route/makebattle',(req,res)=>{
+    app.get('/makebattle',(req,res)=>{
         res.render('makebattle.html');
     });
 
-    app.get('/route/friend',(req,res)=>{
+    app.get('/friend',(req,res)=>{
         res.render('friend.html');
     });
 }

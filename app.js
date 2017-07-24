@@ -21,20 +21,30 @@ app.use(session({
 app.set('views', path.join(__dirname, 'views'));
 app.set('views', 'views')
 app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
+require('./routes/route')(app);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+app.use(express.static('views'));
+
+mongoose.connect('mongodb://localhost:27017/test') ;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+    console.log("Mongo On");
+});
 
 var user = mongoose.Schema({
     name:String,
     id:String,
     password:String,
     token:String,
-    tag:String
+    fight:String
 });
 
 var friends = mongoose.Schema({
@@ -61,10 +71,11 @@ var battleModel = mongoose.model('battleModel',battle);
 var userModel = mongoose.model('userModel',user);
 var friendModel = mongoose.model('friendModel',friends);
 
+
 require('./routes/auth')(app,userModel,randomstring ,session);
 require('./routes/friend')(app,friendModel,userModel);
 require('./routes/battle')(app,battleModel,randomstring,userModel)
-require('./routes/route')(app);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -80,7 +91,6 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
 });
 
 module.exports = app;

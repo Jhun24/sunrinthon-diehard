@@ -3,7 +3,7 @@
  */
 $(".cancel").click(function(){
     "use strict";
-    location.href="login.html";
+    location.href="http://localhost:3000/login";
 });
 
 $(".login").click(function(){
@@ -15,10 +15,11 @@ $(".login").click(function(){
     if($(".ps-re").val() == ps){
         $.ajax({
             method:"POST",
-            url:"http://169.56.126.158:1234/auth/signup",
+            url:"http://localhost:3000/auth/signup",
             data:{"id":id,"password":ps,"name":name},
             success:function(data){
-                console.log(data);
+                console.log("Success");
+                location.href="http://localhost:3000/main"
             },
             error:function(err){
                 console.log(err);
