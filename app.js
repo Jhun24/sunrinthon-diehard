@@ -33,11 +33,24 @@ var friends = mongoose.Schema({
     result:Array
 });
 
+var battle = mongoose.Schema({
+    user1Token:String,
+    user2Token:String,
+    winner:String,
+    loser:String,
+    reward:String,
+    target:String,
+    battleText:String,
+    roomToken:String
+});
+
+var battleModel = mongoose.model('battleModel',battle);
 var userModel = mongoose.model('userModel',user);
 var friendModel = mongoose.model('friendModel',friends);
 
 require('./routes/auth')(app,userModel,randomstring);
 require('./routes/friend')(app,friendModel,userModel);
+require('./routes/battle')(app,battleModel,randomstring)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
