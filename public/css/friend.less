@@ -1,0 +1,214 @@
+.flex(){
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+.flex-center(){
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-justify-content:center;
+}
+
+.flex-align-center() {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+}
+
+.flex-align-end() {
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:end;
+  justify-content:flex-end;
+  -webkit-justify-content:flex-end;
+}
+
+.flex-align-between() {
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:justify;
+  justify-content:space-between;
+  -webkit-justify-content:space-between;
+}
+
+*{
+  margin:0;
+  font-family: 'NanumBarunGothic',sans-serif;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+}
+
+
+.header{
+  width:100%;
+  height:8%;
+  box-shadow: 0 4px 1px -2px rgb(243,243,243);
+}
+
+.header > .header-box{
+  width:90%;
+  margin:auto;
+  height:100%;
+
+
+  .flex-align-center;
+}
+
+.header > .header-box > i{
+  color:rgb(15,77,185);
+  font-size:20px;
+}
+
+.header > .header-box > p{
+  color:rgb(15,77,185);
+  font-size:16px;
+  font-weight:400;
+  margin-left:20px;
+}
+
+.friend-list{
+  width:100%;
+  height:84%;
+
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.friend-list > .friend-data{
+  width:90%;
+  height:12%;
+
+  margin:auto;
+  .flex-align-center;
+}
+
+.friend-list > .friend-data > .profile-img{
+  width:40px;
+  height:40px;
+
+  border-radius:100%;
+
+  background-color:gray;
+  margin-right:10px;
+}
+
+.friend-list > .friend-data > .name{
+  width:60%;
+  height:12%;
+}
+
+.friend-list > .friend-data > .name > p{
+  font-size:4px;
+  color:rgb(183,183,183);
+
+  margin-top:-12px;
+}
+
+.friend-list > .friend-data > .name > .name-data{
+  .flex;
+
+}
+
+.friend-list > .friend-data > .name > .name-data > h5{
+  color:rgb(38,93,196);
+  font-weight:500;
+  font-size:20px;
+  margin-top:2px;
+}
+
+.friend-list > .friend-data > .name > .name-data > p{
+  font-size:12px;
+  color:rgb(82,82,82);
+
+  margin-top:10px;
+  margin-left:5px;
+}
+
+.result{
+  border-left:1px solid rgba(0,0,0,0.2);
+  width:25%;
+  height:60%;
+}
+
+.result > h5{
+  font-size:8px;
+  color:rgb(167,167,167);
+  font-weight:200;
+  margin-top:5px;
+
+  margin-left:5px;
+}
+
+.result > p{
+  color:red;
+  font-size:23px;
+
+  margin-left:5px;
+  margin-top:2px;
+}
+
+.input{
+  width:100%;
+  height:8%;
+  background-color:rgb(84,127,247);
+}
+
+.input-box{
+  .flex-align-between;
+  width:90%;
+  height:100%;
+  margin:auto;
+}
+
+.input-box > input{
+  outline:none;
+  border:none;
+  width:70%;
+  height:50%;
+
+  border-radius:20px;
+
+  padding-left:10px;
+  font-size:15px;
+}
+
+.input-box > .btn{
+  border:1px solid #fff;
+  width:20%;
+  height:50%;
+
+  color:white;
+
+  border-radius:20px;
+
+  .flex-center;
+  font-size:14px;
+}

@@ -1,0 +1,167 @@
+.flex(){
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+.flex-center(){
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-justify-content:center;
+}
+
+.flex-align-center() {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+}
+
+.flex-align-end() {
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:end;
+  justify-content:flex-end;
+  -webkit-justify-content:flex-end;
+}
+
+.flex-align-between() {
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:justify;
+  justify-content:space-between;
+  -webkit-justify-content:space-between;
+}
+*{
+  margin:0;
+  font-family: 'NanumBarunGothic',sans-serif;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+}
+
+.header{
+  width:100%;
+  height:8%;
+  box-shadow: 0 8px 1px -2px rgb(243,243,243);
+}
+
+.header-box{
+  width:90%;
+  height:100%;
+
+  margin:auto;
+
+  .flex-align-between;
+}
+
+.header-box > p{
+  font-size:20px;
+}
+
+.header-box > p > e{
+  color:rgb(39,109,246);
+}
+
+.header-box > .header-text{
+  .flex;
+
+  color:rgb(139,139,139);
+}
+
+.header-box > .header-text > p{
+  margin-right:10px;
+}
+
+.header-box > .header-text > i{
+  margin-bottom:3px;
+
+  color:black;
+}
+
+.explain{
+  width:100%;
+  height:40%;
+
+  margin-top:15%;
+
+  .flex-center;
+}
+
+.explain > .explain-box > .img{
+  background-image: url('battle.png');
+  width:231.5px;
+  height:231.5px;
+  background-size:cover;
+
+  margin:auto;
+}
+
+.explain > .explain-box > p{
+  text-align: center;
+  font-size:26px;
+  color:rgb(39,109,246);
+
+  margin-top:20px;
+}
+
+.start-btn-box , .add-btn-box{
+  width:100%;
+  height:8%;
+
+  .flex-center;
+}
+
+.start-btn-box > .start-btn{
+  width:50%;
+  height:65%;
+  background-color:rgb(84,127,247);
+  color:white;
+  .flex-center;
+
+  border-radius:20px;
+
+  margin-top:20px;
+
+  font-size:14px;
+  font-weight:400;
+}
+
+.add-btn-box > .add-btn{
+  border:1.1px solid rgb(87,127,247);
+  width:50%;
+  height:65%;
+  border-radius:20px;
+  color:rgb(87,127,247);
+  .flex-center;
+
+  font-size:14px;
+  font-weight:400;
+
+  margin-top:20px;
+}

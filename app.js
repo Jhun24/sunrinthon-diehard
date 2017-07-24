@@ -4,14 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session')
 
 var app = express();
 
 var randomstring = require('randomstring');
 var mongoose = require('mongoose');
 
+app.use(session({
+    secret:'@#@$MYSIGN#@$#$',
+    resave: false,
+    saveUninitialized:true
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.set('views', 'views')
+app.engine('html', require('ejs').renderFile);
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -51,10 +61,10 @@ var battleModel = mongoose.model('battleModel',battle);
 var userModel = mongoose.model('userModel',user);
 var friendModel = mongoose.model('friendModel',friends);
 
-require('./routes/auth')(app,userModel,randomstring);
+require('./routes/auth')(app,userModel,randomstring ,session);
 require('./routes/friend')(app,friendModel,userModel);
 require('./routes/battle')(app,battleModel,randomstring,userModel)
-
+require('./routes/route')(app);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

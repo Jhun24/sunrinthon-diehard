@@ -1,0 +1,137 @@
+.flex(){
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+.flex-center(){
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:center;
+  justify-content:center;
+  -webkit-justify-content:center;
+}
+
+.flex-align-center() {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+}
+
+.flex-align-end() {
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:end;
+  justify-content:flex-end;
+  -webkit-justify-content:flex-end;
+}
+
+.flex-align-between() {
+  display:flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items:center;
+  -ms-flex-align:center;
+  -webkit-align-items:center;
+
+  -ms-flex-pack:justify;
+  justify-content:space-between;
+  -webkit-justify-content:space-between;
+}
+
+*{
+  margin:0;
+  font-family: 'NanumBarunGothic',sans-serif;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+
+  background-color:rgb(84,127,247);
+}
+
+.logo-box{
+  width:100%;
+  height:50%;
+
+  .flex-center;
+}
+
+.logo-box > .logo{
+  background-image: url("logo.png");
+  width:231px;
+  height:290.5px;
+  background-size:cover;
+}
+
+.tag-id{
+  width:60%;
+  margin:auto;
+  color:white;
+  font-size:12px;
+  font-weight:200;
+}
+
+input{
+  width:60%;
+  height:6%;
+  margin-left:20%;
+
+  border:none;
+  border-bottom:1px solid rgb(66,100,193);
+  background-color:rgb(84,127,247);
+  font-size:16px;
+  font-weight: lighter;
+
+  outline:none;
+  color:white;
+
+  margin-bottom:20px;
+}
+
+.btn-box{
+  width:60%;
+  margin:auto;
+  height:10%;
+
+  .flex-align-between;
+}
+
+.btn-box > .login{
+  width:45%;
+  height:60%;
+
+  border-radius: 20px;
+  background-color:rgb(236,100,92);
+  color:white;
+
+  .flex-center;
+}
+
+.btn-box > .signup{
+  width:45%;
+  height:60%;
+
+  border-radius: 20px;
+  border:1px solid #fff;
+  color:white;
+  .flex-center;
+}

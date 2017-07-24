@@ -3,7 +3,7 @@
  */
 module.exports = auth;
 
-function auth(app,userModel,randomstring){
+function auth(app,userModel,randomstring,session){
     "use strict";
     app.post('/auth/login',(req,res)=>{
        var id = req.body.id;
@@ -12,7 +12,7 @@ function auth(app,userModel,randomstring){
        userModel.find({"id":id,"password":ps},(err,model)=>{
            if(err) throw err;
            if(!model.length) res.send(404);
-           else res.send(model[0]["token"]);
+           else req.session.token = model[0]["token"]; res.send(model[0]["token"]);
        });
     });
 
@@ -33,6 +33,7 @@ function auth(app,userModel,randomstring){
 
                 userSaveModel.save((error,m)=>{
                     if(error) throw error;
+                    req.session.token = token;
                     res.send(token);
                 });
             }
@@ -55,5 +56,9 @@ function auth(app,userModel,randomstring){
                 res.send(200);
             }
         });
+    });
+
+    app.get('/auth/token',(req,res)=>{
+        res.send(req.session.token);
     });
 }
