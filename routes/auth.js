@@ -41,4 +41,19 @@ function auth(app,userModel,randomstring){
             }
         })
     });
+
+    app.post('/auth/updateName',(req,res)=>{
+        var token = req.body.token;
+        var name = req.body.name;
+
+        userModel.update({"token":token},{$set:{"name":name}},(err,model)=>{
+            if(err) throw err;
+            if(!model.length){
+                res.send(503);
+            }
+            else{
+                res.send(200);
+            }
+        });
+    });
 }
